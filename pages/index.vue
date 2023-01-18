@@ -1,3 +1,16 @@
+<script setup lang="ts">
+import { useTheme } from "vuetify";
+// meta
+definePageMeta({
+  layout: "default",
+});
+const theme = useTheme();
+const toggleTheme= () =>
+        (theme.global.name.value = theme.global.current.value.dark
+          ? "myCustomLightTheme"
+          : "dark")
+
+</script>
 <template lang=""><v-main>
 
   <v-container>
@@ -93,23 +106,3 @@
     </v-main>
     </template>
       
-<script>
-import { useTheme } from "vuetify";
-// meta
-definePageMeta({
-  layout: "default",
-});
-export default {
-  setup() {
-    const theme = useTheme();
-
-    return {
-      theme,
-      toggleTheme: () =>
-        (theme.global.name.value = theme.global.current.value.dark
-          ? "myCustomLightTheme"
-          : "dark"),
-    };
-  },
-};
-</script>
